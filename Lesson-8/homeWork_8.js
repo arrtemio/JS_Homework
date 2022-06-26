@@ -17,16 +17,15 @@ function Animal() {
     }
 
     this._foodAmount = amount;
-    return self;
   };
 
   self.feed = function () {
     console.log("Насыпаем в миску " + self.dailyNorm() + " корма.");
   };
 
-  self.stroke = function () {
+  this.stroke = function () {
     console.log("Гладим кота");
-    return self;
+    return this;
   };
 }
 
@@ -43,5 +42,3 @@ function Cat(name) {
 }
 
 var barsik = new Cat("Барсик");
-
-barsik.feed().stroke().feed().stroke().stroke().feed();
