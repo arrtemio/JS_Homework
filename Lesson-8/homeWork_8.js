@@ -22,11 +22,6 @@ function Animal() {
   self.feed = function () {
     console.log("Насыпаем в миску " + self.dailyNorm() + " корма.");
   };
-
-  this.stroke = function () {
-    console.log("Гладим кота");
-    return this;
-  };
 }
 
 function Cat(name) {
@@ -37,6 +32,11 @@ function Cat(name) {
   this.feed = function () {
     animalFeed();
     console.log("Кот доволен ^_^");
+    return this;
+  };
+
+  this.stroke = function () {
+    console.log("Гладим кота");
     return this;
   };
 }
