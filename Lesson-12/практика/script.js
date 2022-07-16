@@ -1,0 +1,38 @@
+"use strict";
+
+var container = document.getElementById("container"),
+  buttons = document.getElementsByTagName("button"),
+  button = buttons[0];
+
+var firstPar = document.createElement("p"),
+  secondPar = document.createElement("p");
+
+firstPar.innerHTML =
+  'Hello, here are <a href="https://www.facebook.com">Link 1</a> and <a href="https://twitter.com">Link 2</a>';
+secondPar.innerHTML =
+  'Hello, here are <a href="http://google.by">Link 3</a> and <a href="https://vk.com">Link 4</a>';
+
+container.appendChild(firstPar);
+container.appendChild(secondPar);
+
+var linksFrstPar = firstPar.getElementsByTagName("a"),
+  linksSecPar = secondPar.getElementsByTagName("a");
+
+button.onclick = function () {
+  for (var i = 0; i < linksFrstPar.length; i++) {
+    linksFrstPar[i].classList.toggle("red");
+  }
+  // for (var item of linksFrstPar) {
+  //   item.classList.toggle("red");
+  // }
+};
+
+linksSecPar[0].addEventListener("click", function (evt) {
+  evt.preventDefault();
+  alert(linksSecPar[0].getAttribute("href"));
+});
+
+linksSecPar[1].addEventListener("click", function (evt) {
+  evt.preventDefault();
+  alert(linksSecPar[1].getAttribute("href"));
+});
