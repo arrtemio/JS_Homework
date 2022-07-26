@@ -1,13 +1,13 @@
 // Задание 1:
 
-"use strict";
+'use strict';
 
-var nameArr = ["Vasiliy", "Pavel", "Alex"];
+var nameArr = ['Vasiliy', 'Pavel', 'Alex'];
 
 function arrObj(arr) {
   var objName = [];
 
-  var nameObj = arr.map(function (names) {
+  arr.map(function (names) {
     return objName.push({ name: names });
   });
 
@@ -18,13 +18,13 @@ arrObj(nameArr);
 
 // Задание 2:
 
-var currentArr = ["00", "13", "24"];
+var currentArr = ['00', '13', '24'];
 
 function arrToTime(arr) {
-  var time = "Текущее время";
+  var time = 'Текущее время';
 
   var currentTime = arr.reduce(function (prev, item) {
-    return prev + " : " + item;
+    return prev + ' : ' + item;
   }, time);
 
   return currentTime;
@@ -34,12 +34,12 @@ arrToTime(currentArr);
 
 // Задание 3:
 
-var text = prompt("Введите предложение"); // 15
+var text = prompt('Введите предложение'); 
 
 function getVowels(text) {
-  var vowels = ["а","у","о","ы","э","е","ё","и","ю","я","a","e","i","o","u","y"];
+  var vowels = ['а', 'у', 'о', 'ы', 'э', 'е', 'ё', 'и', 'ю', 'я', 'a', 'e', 'i', 'o', 'u', 'y'];
   var newArr = [];
-  var textArr = text.toLowerCase().split("");
+  var textArr = text.toLowerCase().split('');
 
   textArr.map(function (letter) {
     vowels.find(function (vowelsLetter) {
@@ -59,20 +59,23 @@ getVowels(text);
 var text = prompt('Введите ваш текст');
 
 function countSentencesLetters(someText) {
-    var arr = [];
-    var textArr = someText.split(/[.?!]/);
-  
-    for (var k in textArr) {
-      if (textArr[k]) {
-        arr.push(textArr[k]);
-      }
+  var arr = [];
+  var textArr = someText.split(/[.?!]/);
+
+  for (var k in textArr) {
+    if (textArr[k]) {
+      arr.push(textArr[k]);
     }
-  
-    arr.forEach(function (item) {
-      var lettersLength = item.trim().split(/[" ",]/).join('').length;
-  
-      return console.log(item.trim() + " : Letters quantity is: " + lettersLength);
-    });  
+  }
+
+  arr.forEach(function (item) {
+    var lettersLength = item
+      .trim()
+      .split(/[" ",]/)
+      .join('').length;
+
+    return console.log(item.trim() + ' : Letters quantity is: ' + lettersLength);
+  });
 }
 
 countSentencesLetters(text);

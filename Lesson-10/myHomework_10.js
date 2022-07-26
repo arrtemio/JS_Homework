@@ -41,18 +41,20 @@ firstPositive([-1, 0, 2, 34, -2]);
 //   Задание 3:
 
 function isPalindrome(word) {
-  return (word.toLowerCase().split("").reverse().join("") === word.toLowerCase().split("").join(""));
+  return word.toLowerCase().split('').reverse().join('') === word.toLowerCase().split('').join('');
 }
 
-isPalindrome("Шалаш");
+isPalindrome('Шалаш');
 
 //   Задание 4:
 
 function isAnagram(word1, word2) {
-  return (word1.toLowerCase().split("").sort().join("") === word2.toLowerCase().split("").sort().join(""));
+  return (
+    word1.toLowerCase().split('').sort().join('') === word2.toLowerCase().split('').sort().join('')
+  );
 }
 
-isAnagram("кот", "ток");
+isAnagram('кот', 'ток');
 
 //   Задание 5:
 function divideArr(arr, num) {

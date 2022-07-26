@@ -1,11 +1,11 @@
-"use strict";
+'use strict';
 
-var container = document.getElementById("container"),
-    buttons = document.getElementsByTagName("button"),
+var container = document.getElementById('container'),
+    buttons = document.getElementsByTagName('button'),
     button = buttons[0];
 
-var firstPar = document.createElement("p"),
-    secondPar = document.createElement("p");
+var firstPar = document.createElement('p'),
+    secondPar = document.createElement('p');
 
 firstPar.innerHTML =
   'Hello, here are <a href="https://www.facebook.com">Link 1</a> and <a href="https://twitter.com">Link 2</a>';
@@ -15,29 +15,26 @@ secondPar.innerHTML =
 container.appendChild(firstPar);
 container.appendChild(secondPar);
 
-var linksFrstPar = firstPar.getElementsByTagName("a"),
-    linksSecPar = secondPar.getElementsByTagName("a");
+var linksFrstPar = firstPar.getElementsByTagName('a'),
+    linksSecPar = secondPar.getElementsByTagName('a');
 
 button.onclick = function () {
-
   for (var i = 0; i < linksFrstPar.length; i++) {
-    linksFrstPar[i].classList.toggle("red");
+    linksFrstPar[i].classList.toggle('red');
   }
 };
 
-secondPar.addEventListener("click", function (evt) {
+secondPar.addEventListener('click', function (evt) {
   var target = evt.target;
 
   evt.preventDefault();
 
-  while (target != secondPar) {
-    if (target.tagName === "A") {
-      linkGet(target);
-    }
-    target = target.parentNode;
+  if (target.tagName === 'A') {
+    linkGet(target);
   }
+  target = target.parentNode;
 });
 
 function linkGet(target) {
-  alert(target.getAttribute("href"));
+  alert(target.getAttribute('href'));
 }
