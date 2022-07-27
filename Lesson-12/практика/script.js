@@ -15,8 +15,8 @@ secondPar.innerHTML =
 container.appendChild(firstPar);
 container.appendChild(secondPar);
 
-var linksFrstPar = firstPar.getElementsByTagName('a'),
-    linksSecPar = secondPar.getElementsByTagName('a');
+var linksFrstPar = firstPar.children,
+    linksSecPar = secondPar.children;
 
 button.onclick = function () {
   for (var i = 0; i < linksFrstPar.length; i++) {

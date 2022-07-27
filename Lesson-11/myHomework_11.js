@@ -4,17 +4,13 @@
 
 var nameArr = ['Vasiliy', 'Pavel', 'Alex'];
 
-function arrObj(arr) {
-  var objName = [];
-
-  arr.map(function (names) {
-    return objName.push({ name: names });
+function mapNamesArr(names) {
+  return names.map(function (name) {
+    return { name: name };
   });
-
-  return objName;
 }
 
-arrObj(nameArr);
+mapNamesArr(nameArr);
 
 // Задание 2:
 
@@ -34,7 +30,7 @@ arrToTime(currentArr);
 
 // Задание 3:
 
-var text = prompt('Введите предложение'); 
+var text = prompt('Введите предложение');
 
 function getVowels(text) {
   var vowels = ['а', 'у', 'о', 'ы', 'э', 'е', 'ё', 'и', 'ю', 'я', 'a', 'e', 'i', 'o', 'u', 'y'];
@@ -60,7 +56,7 @@ var text = prompt('Введите ваш текст');
 
 function countSentencesLetters(someText) {
   var arr = [];
-  var textArr = someText.split(/[.?!]/);
+  var textArr = someText.split(/[.?!]+/);
 
   for (var k in textArr) {
     if (textArr[k]) {
