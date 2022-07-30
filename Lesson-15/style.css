@@ -13,9 +13,56 @@ header {
   display: flex;
   justify-content: center;
 }
+.main {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
 
-#button {
+.box {
+  display: flex;
+  flex-direction: row;
+  margin-top: 100px;
+  margin-left: 10px;
+}
+
+.user-link {
+  margin-left: 0px;
+  border: 1px solid black;
+  width: 100px;
+  text-align: center;
+  margin-right: 2px;
+  cursor: pointer;
+  position: relative;
+}
+
+.user-box {
+  display: none;
+  background-color: rgba(133, 49, 109, 0.682);
+  width: 650px;
+  position: relative;
+  height: 170px;
   border-radius: 5px;
-  border: 1px solid red;
-  color: blueviolet;
+}
+
+.user-box img {
+  margin: 10px;
+  border-radius: 10%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  box-shadow: 5px 5px 10px rgba(139, 27, 124, 0.8);
+}
+
+.user-box p {
+  margin-left: 250px;
+}
+
+.show {
+  display: flex;
+  margin-left: 5px;
+}
+
+.selected-link {
+  border: 2px solid rgba(133, 49, 109, 0.682);
 }
