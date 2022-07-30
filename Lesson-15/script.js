@@ -47,10 +47,10 @@ getUsers.addEventListener('click', function () {
 
 box.addEventListener('click', function (evt) {
   var target = evt.target;
+  var links = document.getElementsByClassName('user-link');
+  var userBox = document.getElementsByClassName('user-box');
 
   if (target.classList.value === 'user-link') {
-    var links = document.getElementsByClassName('user-link');
-    var userBox = document.getElementsByClassName('user-box');
 
     document.getElementsByClassName('show')[0].classList.remove('show');
     links[0].classList.remove('selected-link');
