@@ -1,46 +1,48 @@
 var xhr = new XMLHttpRequest();
 
-xhr.open('GET', 'https://reqres.in/api/users?page=2');
-
-xhr.send();
-
-var getUsers = document.getElementById('button');
-var main = document.getElementsByClassName('main')[0];
-var box = document.createElement('div');
+var getUsers = document.getElementById('button'),
+    main = document.getElementsByClassName('main')[0],
+    box = document.createElement('div');
 
 getUsers.addEventListener('click', function () {
-  var statusType = +String(xhr.status)[0];
+  xhr.open('GET', 'https://reqres.in/api/users?page=2');
 
-  if (statusType === 2) {
-    var users = JSON.parse(xhr.response).data;
+  xhr.send();
 
-    box.classList.add('box');
-    main.append(box);
+  xhr.onload = function () {
+    var statusType = +String(xhr.status)[0];
 
-    for (var k in users) {
-      var userLink = document.createElement('div');
+    if (statusType === 2) {
+      var users = JSON.parse(xhr.response).data;
 
-      userLink.classList.add('user-link');
-      userLink.innerHTML = 'User ' + (users.indexOf(users[k]) + 1);
-      box.append(userLink);
+      box.classList.add('box');
+      main.append(box);
 
-      var userBox = document.createElement('div');
+      for (var k in users) {
+        var userLink = document.createElement('div');
 
-      userBox.classList.add('user-box');
+        userLink.classList.add('user-link');
+        userLink.innerHTML = 'User ' + (users.indexOf(users[k]) + 1);
+        box.append(userLink);
 
-      userBox.innerHTML +=
-        '<img src = "' + users[k].avatar + '">' +
-        '<p>' + 'First Name: ' + users[k].first_name + '<br>' +
-        'Last Name: ' + users[k].last_name + '</p>';
+        var userBox = document.createElement('div');
 
-      main.append(userBox);
+        userBox.classList.add('user-box');
+
+        userBox.innerHTML +=
+          '<img src = "' + users[k].avatar + '">' +
+          '<p>' + 'First Name: ' + users[k].first_name + '<br>' +
+          'Last Name: ' + users[k].last_name + '</p>';
+
+        main.append(userBox);
+      }
+
+      document.getElementsByClassName('user-box')[0].classList.add('show');
+      document.getElementsByClassName('user-link')[0].classList.add('selected-link');
+    } else {
+      main.innerHTML = 'Ошибка обработки данных с сервера';
     }
-
-    document.getElementsByClassName('user-box')[0].classList.add('show');
-    document.getElementsByClassName('user-link')[0].classList.add('selected-link');
-  } else {
-    main.innerHTML = 'Ошибка обработки данных с сервера';
-  }
+  };
 
   getUsers.disabled = true;
 });
@@ -51,7 +53,6 @@ box.addEventListener('click', function (evt) {
   var userBox = document.getElementsByClassName('user-box');
 
   if (target.classList.value === 'user-link') {
-
     document.getElementsByClassName('show')[0].classList.remove('show');
     links[0].classList.remove('selected-link');
 
