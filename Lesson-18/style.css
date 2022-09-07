@@ -1,0 +1,45 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.button {
+  width: 100px;
+  margin-bottom: 10px;
+}
+#stopwatch {
+  display: flex;
+  justify-content: space-around;
+  max-width: 250px;
+}
+
+#minutes,
+#seconds,
+#msec {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 20px;
+  font-size: 30px;
+  margin: 5px;
+}
+
+#bot-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.none {
+  display: none;
+}

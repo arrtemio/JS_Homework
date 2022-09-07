@@ -10,8 +10,8 @@
 // 2
 
 {
-  isCorrect = (number) => {
-    const regexp = /^((\+|)375(-|)|(8(-|)0))(25|29|33|44|17)(-|)[1-9]{3}((-|)\d{2}){2}$/;
+  const isCorrect = (number) => {
+    const regexp = /^((\+?375-?)|(8-?0))(25|29|33|44|17)-?[1-9]{1}[\d]{2}(-?[\d]{2}){2}$/;
 
     return regexp.test(number);
   };
@@ -19,13 +19,31 @@
   isCorrect('+375-25-777-77-77');
 }
 
-// 3
+// 3.1
 
 {
-  getVowels = (text) => {
+  const getVowels = (text) => {
     const regexp = /[ауоыэеёиюяaeiouy]/gi;
 
     return text.match(regexp) ? text.match(regexp).length : 0;
+  };
+
+  getVowels('');
+}
+
+
+// 3.2
+
+{
+  const getVowels = (text) => {
+    const regexp = /[ауоыэеёиюяaeiouy]/i;
+    let counter = 0;
+    for (let i = 0; i < text.length; i++) {
+      if (regexp.test(text[i])) {
+        counter++;
+      }
+    }
+    return counter;
   };
 
   getVowels('');
